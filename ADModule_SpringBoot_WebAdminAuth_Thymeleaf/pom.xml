@@ -10,10 +10,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.perscholas</groupId>
-	<artifactId>springboot_webadminauth</artifactId>
+	<artifactId>springboot_webadminauth_thymeleaf</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>ADModule_SpringBoot_WebAdminAuth</name>
+	<name>ADModule_SpringBoot_WebAdminAuth_Thymeleaf</name>
 	<description>Test</description>
 
 	<properties>
