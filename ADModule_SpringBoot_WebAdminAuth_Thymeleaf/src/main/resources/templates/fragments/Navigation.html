@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<body>
+<div th:fragment="navigation_menu">
+	<a href="/homePage">Home</a>
+	<a href="/aboutPage">About</a>
+	<a href="/expenseForm">Create Expense</a>
+	<a href="/allExpenses">Expense Report</a>
+	<a href="/expensesByDateRange">Expenses By Date Range</a>
+<!-- 	If the current user's userRole is not "admin" then the link to AdminPage.jsp won't appear in the menu.-->	
+	<a th:if="${session.currentUser.userRole.equals('admin')}" href="/adminPage">Admin Page</a>
+	<a href="/logout">Logout</a>
+</div>
+</body>
+</html>

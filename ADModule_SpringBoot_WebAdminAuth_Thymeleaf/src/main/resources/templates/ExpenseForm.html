@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Expense Form</title>
+</head>
+<body>
+	<h1>Expense Form</h1>
+	<div th:insert="fragments/Navigation.html :: navigation_menu"></div>
+	<form action="#" th:action="@{/createExpense}" method="post"
+		th:object="${newExpense}">
+		<fieldset>
+			<legend>Create Expense</legend>
+			<div>
+				<label for="title">Title</label>
+				<div>
+					<input type="text" th:field="*{title}" />
+				</div>
+			</div>
+
+			<div>
+				<label for="date">Date</label>
+				<div>
+					<input type="date" th:field="*{date}" />
+				</div>
+			</div>
+			<div>
+				<label for="amount">Amount</label>
+				<div>
+					<input th:field="*{amount}" type="number" />
+				</div>
+			</div>
+			<div>
+				<label for="expenseCategory">Expense Category</label>
+				<div>
+					<select th:field="*{expenseCategory.expenseCategoryId}">
+						<option th:each="expCat : ${expenseCategories}"
+							th:value="${expCat.expenseCategoryId}"
+							th:text="${expCat.expenseCategoryName}" />
+					</select>
+				</div>
+			</div>
+			<input type="submit" value="Create Expense">
+		</fieldset>
+	</form>
+</body>
+</html>

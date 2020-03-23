@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Expense Report By Date Range</title>
+</head>
+<body>
+	<h1>Expense Report By Date Range</h1>
+	<div th:insert="fragments/Navigation.html :: navigation_menu"></div>
+	<fieldset>
+		<legend>Expenses</legend>
+		<form action="/customDateRangeReport" method="get">
+		<div>
+			<label>Begin Date:</label>
+			<input type="date" name="begDate" />
+		</div>
+		<div>
+			<label>End Date:</label>
+			<input type="date" name="endDate" />
+		</div>
+		<div>
+			<input type="submit" value="Submit" />
+		</div>
+		</form>
+		<table>
+			<tr>
+				<td>Title</td>
+				<td>Category</td>
+				<td>Amount</td>
+			</tr>
+			<tr th:each="expense : ${expensesByDateRange}">
+				<td th:text="${expense.title}"></td>
+				<td th:text="${expense.expenseCategory.expenseCategoryName}"></td>
+				<td th:text="${expense.amount}"></td>
+			</tr>
+		</table>
+	</fieldset>
+</body>
+</html>

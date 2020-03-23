@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Expense Report</title>
+</head>
+<body>
+	<h1>Expense Report</h1>
+	<div th:insert="fragments/Navigation.html :: navigation_menu"></div>
+	<fieldset>
+		<legend>Expenses</legend>
+		<table>
+			<tr>
+				<td>Title</td>
+				<td>Category</td>
+				<td>Amount</td>
+			</tr>
+			<tr th:each="expense : ${allExpenses}">
+				<td th:text="${expense.title}"></td>
+				<td th:text="${expense.expenseCategory.expenseCategoryName}"></td>
+				<td th:text="${expense.amount}"></td>
+			</tr>
+		</table>
+	</fieldset>
+</body>
+</html>

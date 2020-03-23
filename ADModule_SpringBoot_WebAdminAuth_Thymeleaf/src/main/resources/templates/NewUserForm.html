@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>New User Form</title>
+<style>
+.error {
+	color: red;
+}
+</style>
+</head>
+<body>
+	<h1>New User Form</h1>
+ 	<form action="#" th:action="@{/createUser}" th:object="${newUser}" method="post">
+		<fieldset>
+			<legend>Register</legend>
+			<div>
+				<label for="name">Name</label>
+				<div>
+					<input type="text" th:field="*{name}"/>
+				</div>
+			</div>
+
+			<div>
+				<label for="email">Email</label>
+				<div>
+					<input type="text" th:field="*{email}"/>
+				</div>
+			</div>
+			<div>
+				<label for="password">Password</label>
+				<div>
+					<input type="text" th:field="*{password}"/>
+				</div>
+			</div>
+			<input type="submit" value="Register">
+		</fieldset>
+	</form>
+	<a href="/">Cancel</a>
+</body>
+</html>
